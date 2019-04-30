@@ -1,2 +1,2 @@
-# vim_config
-my configuration of vim
+# vim_learning
+my configuration and learning note of vim
