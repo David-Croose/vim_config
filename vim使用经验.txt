@@ -1,0 +1,176 @@
+打开vim时指定打开多个文件，而且垂直分割窗口：
+	vim -O file1.c file2.c
+水平打开则是：
+	vim -o file1.c file2.c
+
+
+
+如果一开始只有file1.c独占一个窗口，想垂直打开另一个，则：
+	vs file2.c
+同理，如果想水平打开另一个文件：则：
+	sp file2.c
+如果单单输入sp或者vs也是可以的，只是这时是一个文件被分成多个窗口
+
+
+
+已经打开了多个窗口，想调整各个窗口的大小，使用res命令，高度调节：
+	res +12
+	res -12
+宽度调节：
+	vertical res +12
+	vertical res -12
+
+查看当前文件名和当前位置：ctrl + g 或者 :f
+
+查看当前光标下的符号的下/上个出现的地方：先按shift + 8 再按n和N上下寻找
+
+获取某个插件的帮助文档（拿taglist来说）：
+:help taglist
+
+换主题：
+:colorscheme <空格+tab>
+找到自己喜欢的然后按回车
+上面讲的只是临时设置，永久设置方法如下：
+在~/.vimrc中添加colorscheme morning
+添加主题的方法：
+1、创建~/.vim/colors目录
+2、去网上找别人写好的，或者自己写一个主题文件，以.vim为后缀，放在上面讲的那个目录
+3、在~/.vimrc中添加colorscheme <你自己的主题>
+
+
+
+重复上次操作：.
+
+
+查看命令历史，或者想输入上条命令：
+	在普通模式下直接按"q"，然后按":"
+
+
+撤销：u
+重来：ctrl + r
+
+
+vundle使用
+==========
+
+vundle是一个vim下的一个插件管理器，它本身也是一个插件
+
+安装：
+1. mkdir -p ~/.vim/bundle
+2. git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+
+
+
+ctags使用
+=========
+
+ctags不是vim的插件，是一个独立的程序，用来生成代码索引库的
+
+安装：sudo apt-get install ctags
+
+使用前必须生成数据库：ctags -R
+
+符号跳转：ctrl + ]
+符号跳转不包括局部变量，想要查看局部变量，可以这样输入：gd（先按g，再按d）
+
+~/.vimrc设置:
+set tags=~/path/tags
+set tags=tags;
+set autochdir
+
+
+
+taglist使用
+===========
+
+安装（vundle作为插件管理器）：在~/.vimrc中添加：Plugin 'taglist.vim'，然后在vim界面中执行:PluginInstall，等待安装完成
+
+<Space>       显示光标下tag的原型定义
+u             更新taglist窗口中的tag
+s             更改排序方式，在按名字排序和按出现顺序排序间切换
+x             taglist窗口放大和缩小，方便查看较长的tag
+
+
+~/.vimrc设置：
+map <f3> :TlistToggle<CR>
+let Tlist_Use_Right_Window=1   " taglist is in the right side
+let Tlist_Exit_OnlyWindow=1    " if taglist is the last windown, quit vim
+let Tlist_WinWidth=35
+let Tlist_Show_One_File=1      " don't show several files' taglist, just show current one
+
+
+
+
+airline使用
+===========
+
+airline可以在vim的界面下部显示一个状态栏，它同时还集成了很多其他的插件
+
+安装（vundle作为插件管理器）：在~/.vimrc中添加：Plugin 'vim-airline/vim-airline-themes'，然后在vim界面中执行:PluginInstall，等待安装完成
+
+
+
+
+cscope使用
+==========
+
+我不怎么喜欢cscope，讲得简单点了。cscope和ctag都不全面，得两个都用，两个都用也还是不好用，比不过eclipse
+
+cscope不是vim的插件，它是一个独立的程序，vim里面也要支持cscope才能跟cscope联动
+
+安装：
+1、vim必须在编译时就有加上--cscope（好像是这个），如果vim没有，就要卸载，加上那个选项重新编译安装
+2、sudo apt-get install cscope
+
+
+使用：
+1、在源码目录下执行cscope -Rbk生成数据库cscope.out文件
+2、输入这个语句让cscope索引你想要的文件格式：find . -name "*.h" -o -name "*.c" -o -name "*.S" >> cscope.files
+3、在vim中输入cs add cscope.out
+4、在vim中用光标悬停在一个符号的某个字符上，然后按ctrl + 空格，放开后再按s，找到相关引用。除了这
+   个快捷键，还有很多，具体都在~/.vim/plugin/cscope_map.vim里面，这是cscope自己生成的vim配置文件
+   一般不用改
+
+注意：vim系统设置set autochdir会导致cscope不能进入子目录，所有如果使用cscope，就不能有这项
+
+
+~/.vimrc相关配置：
+map <F5> :!cscope -Rbk<CR>
+
+
+
+nerd-tree使用
+=============
+
+这是一个文件浏览器插件
+
+安装（vundle作为插件管理器）：
+    在~/.vimrc中添加：Plugin 'The-NERD-tree'
+    然后在vim中输入：PluginInstall
+
+~/.vimrc相关配置：
+    autocmd StdinReadPre * let s:std_in=1
+    map <F2> :NERDTreeToggle<CR>
+
+
+选定一个单词
+============
+
+    先按v，再按下面任一命令
+
+    aw     a word
+    iw     inner word
+    aW     a WORD
+    iW     inner WORD
+    as     a sentence
+    is     inner sentence
+    ap     a paragraph
+    ip     inner paragraph
+    a[|]   a[] block （这里的'|'是或的意思，也就是说'a['和'a]'都表示一个[]块）'{} &al;>()与[]作用类似
+    at     a  tag （这里的tag可以是html或xml中任何标签对）
+    it     inner tag
+
+删除行尾空格
+============
+    vim查看模式下输入':'，然后输入'%s/\s\+$//g'
