@@ -7,11 +7,18 @@ set tabstop=4
 set nowrap            " don't aoto wrap the text
 set expandtab         " tab turns to space
 syntax on
+
+" all about the indent
 set autoindent
 set cindent
 set smartindent
 set shiftwidth=4
 
+" the current line color
+set cursorcolumn
+set cursorline
+highlight CursorLine   cterm=NONE ctermbg=blue ctermfg=green guibg=NONE guifg=NONE
+highlight CursorColumn cterm=NONE ctermbg=blue ctermfg=green guibg=NONE guifg=NONE
 
 
 
