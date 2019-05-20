@@ -5,8 +5,13 @@
 set nu
 set tabstop=4
 set nowrap            " don't aoto wrap the text
-syntax on
 set expandtab         " tab turns to space
+syntax on
+set autoindent
+set cindent
+set smartindent
+set shiftwidth=4
+
 
 
 
