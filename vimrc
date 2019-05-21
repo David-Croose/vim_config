@@ -71,6 +71,8 @@ call vundle#begin()                  " don't modify or delete this
 " 3. (gdb): break <line>
 " 4. (gdb): run
 " 5. <F10>, <F11>...
+" 
+" Note: this plugin may be not good, you could try cgdb
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plugin 'cpiger/NeoDebug'
 let g:neodbg_console_height        = 15  " gdb console buffer hight, Default: 15
