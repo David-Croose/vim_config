@@ -60,7 +60,9 @@ vundle是一个vim下的一个插件管理器，它本身也是一个插件
 2. git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 注意：
-如果在vim中输入":PluginInstall"提示"E492 Not an editor command"，那就改vundle的安装目录:
+* https://github.com/gmarik/Vundle.vim.git跟https://github.com/VundleVim/Vundle.vim其实是同一个库
+
+* 如果在vim中输入":PluginInstall"提示"E492 Not an editor command"，那就改vundle的安装目录:
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/plugin/Vundle.vim
 
 
