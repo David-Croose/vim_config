@@ -53,17 +53,68 @@
 vundle使用
 ==========
 
-vundle是一个vim下的一个插件管理器，它本身也是一个插件
+vundle是一个vim下的一个插件管理器（vim本身没有插件管理器），它本身也是一个插件。
+有了它，你只要在.vimrc文件中写入你想要的插件名它就会帮你安装插件，你删除插件名它就会帮你卸载掉，比手动维护方便得多。
+项目地址：
+https://github.com/gmarik/Vundle.vim.git
+或者：
+https://github.com/VundleVim/Vundle.vim.git
+两个都是一样的库
 
 安装：
-1. mkdir -p ~/.vim/bundle
-2. git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+1. git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+2. 把下面这段文本（这只是个示例文件）写入你的$HOME/.vimrc文件
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-注意：
-* https://github.com/gmarik/Vundle.vim.git跟https://github.com/VundleVim/Vundle.vim其实是同一个库
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-* 如果在vim中输入":PluginInstall"提示"E492 Not an editor command"，那就改vundle的安装目录:
-	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/plugin/Vundle.vim
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+3. 进入vim，然后运行":PluginInstall"
+
+可能遇到的问题及解决办法：
+问题：在vim中输入":PluginInstall"提示"E492 Not an editor command"
+办法："PluginInstall"这个命令本来就不是vim的原生命令，它来自vundle，既然vim不能识别，很有可能是vim没能识别到vundle。
+      你可能把$HOME/.vimrc文件做成/etc/vimrc了，/etc/vimrc这个路径只对部分Linux发行版起作用，所以用$HOME/.vimrc更为稳妥
 
 
 
