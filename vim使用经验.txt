@@ -114,7 +114,7 @@ filetype plugin indent on    " required
 可能遇到的问题及解决办法：
 问题：在vim中输入":PluginInstall"提示"E492 Not an editor command"
 办法："PluginInstall"这个命令本来就不是vim的原生命令，它来自vundle，既然vim不能识别，很有可能是vim没能识别到vundle。
-      你可能把$HOME/.vimrc文件做成/etc/vimrc了，/etc/vimrc这个路径只对部分Linux发行版起作用，所以用$HOME/.vimrc更为稳妥
+      你可能把~/.vimrc文件做成/etc/vimrc或者别的什么了，得改成~/.vimrc，因为这个插件不支持全局配置
  
 问题：切到root用户后原来的vimrc不起作用了
 办法：你换用户了，这意味着"~/"目录发生了变化，所以你得重装一次vundle，重新设置一份.vimrc文件，当然你必须全程保持是root用户
