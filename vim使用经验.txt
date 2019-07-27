@@ -166,7 +166,10 @@ airline使用
 
 airline可以在vim的界面下部显示一个状态栏，它同时还集成了很多其他的插件
 
-安装（vundle作为插件管理器）：在~/.vimrc中添加：Plugin 'vim-airline/vim-airline-themes'，然后在vim界面中执行:PluginInstall，等待安装完成
+安装（vundle作为插件管理器）：在~/.vimrc中添加：
+	Plugin 'vim-airline/vim-airline'
+	Plugin 'vim-airline/vim-airline-themes'
+然后在vim界面中执行:PluginInstall，等待安装完成
 
 
 
