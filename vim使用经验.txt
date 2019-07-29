@@ -248,3 +248,8 @@ nerd-tree使用
 	粘贴前输入":set paste"
 	粘贴后输入":set nopaste"
 
+
+vim切回终端（vim与shell交互）
+===========================
+	vim按ctrl+z切到终端
+	终端按fg切回vim
