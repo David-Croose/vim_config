@@ -7,6 +7,7 @@ set tabstop=4
 set nowrap            " don't aoto wrap the text
 set expandtab         " tab turns to space
 syntax on
+set hlsearch          " hightlight search result
 
 " all about the indent
 set autoindent
