@@ -259,3 +259,13 @@ vim切回终端（vim与shell交互）
 =======
 	:e
 
+
+使用quickfix在vim内部执行make
+============================
+	1. :set makeprg=mingw32-make		" 设置你的make程序，如果有空格要加\转义符
+	2. :make
+	3. cc					" 查看详细错误
+
+
+
+
