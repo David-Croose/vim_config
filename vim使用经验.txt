@@ -283,4 +283,11 @@ ubuntu彻底卸载vim
 	sudo apt-get remove vim-scripts
 
 
+gvim去掉烦人的un~文件
+=================
+	在gvim的安装目录找到vimrc_example.vim文件，把下面两行（else 和 set...）注释掉：
+	if has("vms") 
+	set nobackup " do not keep a backup file, use versions instead 
+	" else 
+	" set backup " keep a backup file 
 
