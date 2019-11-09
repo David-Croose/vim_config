@@ -270,4 +270,17 @@ vim切回终端（vim与shell交互）
 查看vim的版本，安装了哪些功能，vimrc的位置
 =======================================
 	:version
+	或者
+	vim --version
+
+ubuntu彻底卸载vim
+=================
+	sudo apt-get remove vim
+	sudo apt-get remove vim-runtime
+	sudo apt-get remove vim-tiny
+	sudo apt-get remove vim-common
+	sudo apt-get remove vim-doc
+	sudo apt-get remove vim-scripts
+
+
 
