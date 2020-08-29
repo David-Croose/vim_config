@@ -8,6 +8,7 @@ set nowrap            " don't aoto wrap the text
 set expandtab         " tab turns to space
 syntax on
 set hlsearch          " hightlight search result
+colorscheme zellner
 
 " all about the indent
 set autoindent
@@ -16,10 +17,10 @@ set smartindent
 set shiftwidth=4
 
 " the current line color
-set cursorcolumn
+""" set cursorcolumn
 set cursorline
 highlight CursorLine   cterm=NONE ctermbg=blue ctermfg=green guibg=NONE guifg=NONE
-highlight CursorColumn cterm=NONE ctermbg=blue ctermfg=green guibg=NONE guifg=NONE
+""" highlight CursorColumn cterm=NONE ctermbg=blue ctermfg=green guibg=NONE guifg=NONE
 
 
 
@@ -123,7 +124,7 @@ let g:airline#extensions#whitespace#enabled=0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerd-tree setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plugin 'The-NERD-tree'
+Plugin 'scrooloose/nerdtree'        " don't use this: "Plugin 'The-NERD-tree'", not compatible in gvim
 autocmd StdinReadPre * let s:std_in=1
 map <F2> :NERDTreeToggle<CR>
 
@@ -147,4 +148,5 @@ call vundle#end()       " don't modify or delete this
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " vundle
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 
