@@ -127,6 +127,7 @@ let g:airline#extensions#whitespace#enabled=0
 Plugin 'scrooloose/nerdtree'        " don't use this: "Plugin 'The-NERD-tree'", not compatible in gvim
 autocmd StdinReadPre * let s:std_in=1
 map <F2> :NERDTreeToggle<CR>
+nn <silent><F4> :exec("NERDTree ".expand('%:h'))<CR>    " locate current file
 
 
 
